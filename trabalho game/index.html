@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quebra-Código - Dezembro Vermelho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            text-shadow: 0 0 10px #ff4d6d;
+        }
+
+        .card {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 430px;
+            margin: auto;
+            box-shadow: 0 0 15px #ff4d6d;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 15px;
+        }
+
+        button {
+            background: #ff4d6d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            box-shadow: 0 0 10px #ff4d6d;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #msgFinal {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #7dff9f;
+            text-shadow: 0 0 10px #7dff9f;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quebra-Código do Dezembro Vermelho</h1>
+
+    <div class="card">
+        <h2 id="tituloFase">Fase 1</h2>
+
+        <p><strong>Mensagem embaralhada:</strong></p>
+        <p id="msgCrypto" style="font-size:20px;">RÇEONPÃEV</p>
+
+        <p id="dica">Dica: Anagrama (letras embaralhadas)</p>
+
+        <input id="resposta" placeholder="Digite sua resposta">
+        <button onclick="verificar()">Verificar</button>
+
+        <p id="resultado"></p>
+    </div>
+
+    <p id="msgFinal"></p>
+
+    <script>
+        let fase = 1;
+
+        function verificar() {
+            let r = document.getElementById("resposta").value.toUpperCase().trim();
+            let resultado = document.getElementById("resultado");
+
+            // ----- FASE 1 -----
+            if (fase === 1) {
+                if (r === "PREVENÇÃO" || r === "PREVENCAO") {
+                    resultado.innerHTML =
+                        "✔️ Muito bem! Prevenção é fundamental no combate ao HIV.<br><br>➡ Indo para a Fase 2...";
+                    setTimeout(() => fase2(), 2000);
+                } else resultado.innerHTML = "❌ Resposta incorreta!";
+            }
+
+            // ----- FASE 2 -----
+            else if (fase === 2) {
+                if (r === "PRESERVATIVO") {
+                    resultado.innerHTML =
+                        "✔️ Correto! O preservativo é uma das melhores formas de prevenção.<br><br>➡ Próxima fase...";
+                    setTimeout(() => fase3(), 2000);
+                } else resultado.innerHTML = "❌ Tente novamente!";
+            }
+
+            // ----- FASE 3 -----
+            else if (fase === 3) {
+                if (r === "TESTE") {
+                    resultado.innerHTML =
+                        "✔️ Isso! O teste rápido é gratuito e salva vidas.<br><br>➡ Fase 4...";
+                    setTimeout(() => fase4(), 2000);
+                } else resultado.innerHTML = "❌ Não é isso.";
+            }
+
+            // ----- FASE 4 -----
+            else if (fase === 4) {
+                if (r === "INFORMAÇÃO" || r === "INFORMACAO") {
+                    resultado.innerHTML =
+                        "✔️ Informação correta combate o estigma.<br><br>➡ Fase 5...";
+                    setTimeout(() => fase5(), 2000);
+                } else resultado.innerHTML = "❌ Continue tentando!";
+            }
+
+            // ----- FASE 5 -----
+            else if (fase === 5) {
+                if (r === "CONSULTA") {
+                    resultado.innerHTML =
+                        "✔️ Consultas regulares ajudam no diagnóstico precoce.<br><br>➡ Fase 6...";
+                    setTimeout(() => fase6(), 2000);
+                } else resultado.innerHTML = "❌ Quase lá!";
+            }
+
+            // ----- FASE 6 -----
+            else if (fase === 6) {
+                if (r === "TRATAMENTO") {
+                    resultado.innerHTML =
+                        "✔️ Tratamento adequado permite viver com qualidade.";
+                    document.getElementById("msgFinal").innerHTML =
+                        "🎉 PARABÉNS! Você completou todas as fases e aprendeu sobre prevenção, testagem e cuidado no Dezembro Vermelho!";
+                } else resultado.innerHTML = "❌ Não é isso.";
+            }
+        }
+
+        function fase2() {
+            fase = 2;
+            document.getElementById("tituloFase").innerHTML = "Fase 2";
+            document.getElementById("msgCrypto").innerHTML = "RTAOSEVRPVI";
+            document.getElementById("dica").innerHTML = "Dica: Anagrama";
+            limpar();
+        }
+
+        function fase3() {
+            fase = 3;
+            document.getElementById("tituloFase").innerHTML = "Fase 3";
+            document.getElementById("msgCrypto").innerHTML = "TETSE";
+            document.getElementById("dica").innerHTML = "Dica: Anagrama";
+            limpar();
+        }
+
+        function fase4() {
+            fase = 4;
+            document.getElementById("tituloFase").innerHTML = "Fase 4";
+            document.getElementById("msgCrypto").innerHTML = "OIÇFAMRONA";
+            document.getElementById("dica").innerHTML = "Dica: Anagrama";
+            limpar();
+        }
+
+        function fase5() {
+            fase = 5;
+            document.getElementById("tituloFase").innerHTML = "Fase 5";
+            document.getElementById("msgCrypto").innerHTML = "LATSUNCO";
+            document.getElementById("dica").innerHTML = "Dica: Anagrama";
+            limpar();
+        }
+
+        function fase6() {
+            fase = 6;
+            document.getElementById("tituloFase").innerHTML = "Fase 6";
+            document.getElementById("msgCrypto").innerHTML = "MTOETRAANT";
+            document.getElementById("dica").innerHTML = "Dica: Anagrama";
+            limpar();
+        }
+
+        function limpar() {
+            document.getElementById("resultado").innerHTML = "";
+            document.getElementById("resposta").value = "";
+        }
+    </script>
+
+</body>
+</html>
